@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: chon <chon@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/21 14:22:28 by chon              #+#    #+#              #
+#    Updated: 2024/10/21 14:22:28 by chon             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = myawesomephonebook
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)
-SRCS = contact.cpp phonebook.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
