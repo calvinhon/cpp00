@@ -20,28 +20,25 @@
 
 class	Contact {
 
+public:
+	Contact(const std::string& fName, const std::string& lName,
+	const std::string& nName, const std::string& pNumber, const std::string& dSecret);
+	~Contact();
+
+	static std::string	fieldPrompt[5];
+	std::string			get_fName() const;
+	std::string			get_lName() const;
+	std::string			get_nName() const;
+	std::string			get_phoneNum() const;
+	std::string			get_darkSecret() const;
+
 private:
-	int					_index;
 	std::string			_firstName;
 	std::string			_lastName;
 	std::string			_nickName;
 	std::string			_phoneNumber;
 	std::string			_darkestSecret;
 
-public:
-	Contact();
-	Contact(const std::string& firstName, const std::string& lastName,
-	const std::string& nickName, const std::string& phoneNumber, const std::string& darkestSecret);
-	~Contact();
-
-	static std::string	fieldPrompt[5];
-	void				incr_index(int _index);
-	int					get_index() const;
-	std::string			get_fName() const;
-	std::string			get_lName() const;
-	std::string			get_nName() const;
-	std::string			get_phoneNum() const;
-	std::string			get_darkSecret() const;
 };
 
 #endif

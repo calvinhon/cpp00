@@ -13,6 +13,8 @@
 #ifndef PHONE_BOOK_H
 #define PHONE_BOOK_H
 
+#define	MAX_CONTACT_CT 8
+
 #include <iostream>
 #include <cctype>
 #include <cstring>
@@ -20,14 +22,21 @@
 #include "Contact.hpp"
 
 class	PhoneBook {
-	
-private:
-	Contact	_contacts[8];
-	
+
 public:
+	PhoneBook();
+	~PhoneBook();
+
+	int		get_contact_ct();
+	void	set_contact_ct();
 	void	add_contact(const Contact& contact);
 	void	search_contacts(int index) const;
 	void	display_contacts() const;
+
+private:
+	Contact	_contacts[MAX_CONTACT_CT];
+	int		_contact_ct {0};
+
 };
 
 #endif
