@@ -16,18 +16,30 @@ PhoneBook::PhoneBook() {}
 
 PhoneBook::~PhoneBook() {}
 
-void	PhoneBook::add_contact(const Contact& contact) {
-	set_contact_ct();
-	_contacts[get_contact_ct()] = contact;
-}
+Contact PhoneBook::get_contact(int i) {return _contacts[i];}
 
-void	set_contact_ct() {_contact_ct++;}
-int		get_contact_ct() {return _contact_ct;}
+int		PhoneBook::get_contact_ct() {return _contact_ct;}
+
+void	PhoneBook::set_contact_ct() {_contact_ct++;}
+
+void	PhoneBook::add_contact(const Contact& contact) {
+	int i = get_contact_ct() + 1;
+
+    if (!get_contact_ct())
+    {
+        _contacts[0] = contact;
+	    set_contact_ct();
+    }
+    else
+    {
+        while (--i > -1)
+            _contacts[i] = _contacts[i - 1];
+        _contacts[i] = contact;
+	    if (get_contact_ct() < MAX_CONTACT_CT)
+            set_contact_ct();
+    }
+}
 
 void	PhoneBook::search_contacts(int index) const {
 	
-}
-
-void	PhoneBook::display_contacts() const {
-
 }

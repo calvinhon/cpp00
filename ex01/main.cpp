@@ -13,27 +13,41 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-	// const std::string	firstName;
-	// const std::string	lastName;
-	// const std::string	nickName;
-	// const std::string	phoneNumber;
-	// const std::string	darkestSecret;
+void display(const std::string& str) {
+    int i = -1;
+    int j = -1;
 
-void	search_contact(PhoneBook phone_book) {
+    if (str.length() < 10) {
+        while (++i < 10 - str.length())
+            std::cout << " "; 
+        i--;
+    }
+    while (str[++j] && ++i < 10)
+        std::cout << str[j]; 
+    std::cout << "|";
+}
+
+void	search_contact(PhoneBook& phone_book) {
 	int	i = -1;
 
 	std::cout << "|----------|----------|----------|----------|\n";
 	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	std::cout << "|----------|----------|----------|----------|\n";
 	while (++i < MAX_CONTACT_CT)
-		std::cout << "|         " << i << "|" << "|" << "|" << "|\n" ;
+    {
+		std::cout << "|         " << i << "|";
+        display(phone_book.get_contact(i).Contact::get_fName());
+        display(phone_book.get_contact(i).Contact::get_lName());
+        display(phone_book.get_contact(i).Contact::get_nName());
+        std::cout << "\n";
+    }
 	std::cout << "|----------|----------|----------|----------|\n";
 }
 
-void	add_contact_info(PhoneBook phone_book) {
+void	add_contact_info(PhoneBook& phone_book) {
 	std::string	fieldInput[5] {};
 	
-	for (int i = -1; i < 5; ++i) {
+	for (int i = 0; i < 5; ++i) {
 		std::cout << "Enter " << Contact::fieldPrompt[i];
 		std::getline(std::cin, fieldInput[i]);
 	}

@@ -21,23 +21,24 @@
 class	Contact {
 
 public:
-	Contact(const std::string& fName, const std::string& lName,
+	Contact() = default;
+    Contact(const std::string& fName, const std::string& lName,
 	const std::string& nName, const std::string& pNumber, const std::string& dSecret);
 	~Contact();
 
 	static std::string	fieldPrompt[5];
-	std::string			get_fName() const;
-	std::string			get_lName() const;
-	std::string			get_nName() const;
-	std::string			get_phoneNum() const;
-	std::string			get_darkSecret() const;
+	const std::string&	get_fName() const;
+	const std::string&	get_lName() const;
+	const std::string&	get_nName() const;
+	const std::string&	get_phoneNum() const;
+	const std::string&	get_darkSecret() const;
 
 private:
-	std::string			_firstName;
-	std::string			_lastName;
-	std::string			_nickName;
-	std::string			_phoneNumber;
-	std::string			_darkestSecret;
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string	_nickName;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
 
 };
 

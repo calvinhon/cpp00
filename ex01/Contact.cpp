@@ -27,8 +27,8 @@ Contact::Contact(const std::string& fName, const std::string& lName,
 
 Contact::~Contact() {}
 
-std::string	Contact::get_fName() const {return _firstName;}
-std::string	Contact::get_lName() const {return _lastName;}
-std::string	Contact::get_nName() const {return _nickName;}
-std::string	Contact::get_phoneNum() const {return _phoneNumber;}
-std::string	Contact::get_darkSecret() const {return _darkestSecret;}
+const std::string&	Contact::get_fName() const {return _firstName;}
+const std::string&	Contact::get_lName() const {return _lastName;}
+const std::string&	Contact::get_nName() const {return _nickName;}
+const std::string&	Contact::get_phoneNum() const {return _phoneNumber;}
+const std::string&	Contact::get_darkSecret() const {return _darkestSecret;}
