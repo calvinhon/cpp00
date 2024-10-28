@@ -19,6 +19,7 @@
 #include <cctype>
 #include <cstring>
 #include <string>
+#include <sstream>
 #include "Contact.hpp"
 
 class	PhoneBook {
@@ -31,11 +32,12 @@ public:
     int		get_contact_ct();
 	void	set_contact_ct();
 	void	add_contact(const Contact& contact);
-	void	search_contacts(int index) const;
+	void 	display(const std::string& str, int is_empty);
+	void	search_contacts();
 
 private:
 	Contact	_contacts[MAX_CONTACT_CT];
-	int		_contact_ct {0};
+	int		_contact_ct;
 
 };
 
