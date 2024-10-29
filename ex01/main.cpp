@@ -20,7 +20,11 @@ void	add_contact_info(PhoneBook& phone_book) {
 		while (1) {
 			std::cout << "Enter " << Contact::fieldPrompt[i];
 			std::getline(std::cin, fieldInput[i]);
-			if (!fieldInput[i].empty())
+			if (std::cin.eof()) {
+				std::cout << "Aborted!\n";
+				return ;
+			}
+			else if (!fieldInput[i].empty())
 				break ;
 			else
 				std::cout << "Input must not be empty!\n";
@@ -38,8 +42,12 @@ int	main(int ac, char **av) {
 	while (1) {
 		std::cout << "Input ADD, SEARCH OR EXIT\n";
 		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			std::cout << "Aborted!\n";
+			return (1);
+		}
 		if (input.empty() || (input != "ADD" && input != "SEARCH" && input != "EXIT"))
-			std::cout << "REMINDER! Input only one argument: ADD, SEARCH or EXIT\n";
+			std::cout << "REMINDER! Only one of these options: \n";
 		if (input == "ADD")
 			add_contact_info(phone_book);
 		if (input == "SEARCH")

@@ -28,19 +28,9 @@ public:
 
 	static std::string	fieldPrompt[5];
 	const std::string&	get_field(int index) const;
-	// const std::string&	get_fName() const;
-	// const std::string&	get_lName() const;
-	// const std::string&	get_nName() const;
-	// const std::string&	get_pNum() const;
-	// const std::string&	get_dSecret() const;
 
 private:
 	std::string _fieldInput[5];
-	// std::string	_firstName;
-	// std::string	_lastName;
-	// std::string	_nickName;
-	// std::string	_phoneNumber;
-	// std::string	_darkestSecret;
 
 };
 
